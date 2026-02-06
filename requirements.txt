@@ -1,0 +1,4 @@
+flask==3.0.3
+beautifulsoup4==4.12.3
+selenium==4.24.0
+geckodriver-autoinstaller==0.1.1
