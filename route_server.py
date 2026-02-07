@@ -69,6 +69,7 @@ def scrape_airport_routes():
     }
     options = Options()
     options.add_argument("--headless")  # Run headless for cloud
+    options.binary_location = '/usr/bin/firefox'  # Path for apt-installed Firefox
     service = Service()
     driver = webdriver.Firefox(service=service, options=options)
 
@@ -252,7 +253,6 @@ def scrape_airport_routes():
                     EC.element_to_be_clickable((By.XPATH, '//button[div[contains(text(), "Show Earlier Flights")]]'))
                 )
                 earlier_button.location_once_scrolled_into_view
-                driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", earlier_button)
                 time.sleep(3)  # Stabilize after scroll
                 earlier_button.click()
                 time.sleep(3)
